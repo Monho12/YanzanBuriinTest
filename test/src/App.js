@@ -11,21 +11,21 @@ function App() {
   const [number, setNumber] = useState("");
 
   const onCaptcha = () => {
-    // if (!window.recaptchaVerifier) {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      "recaptcha-container",
-      {
-        size: "invisible",
-        callback: (response) => {
-          onSignUp();
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        "recaptcha-container",
+        {
+          size: "invisible",
+          callback: (response) => {
+            onSignUp();
+          },
+          "expired-callback": () => {
+            console.log("gg");
+          },
         },
-        "expired-callback": () => {
-          console.log("gg");
-        },
-      },
-      auth
-    );
-    // }
+        auth
+      );
+    }
   };
 
   const onSignUp = () => {
