@@ -1,0 +1,16 @@
+.App {
+  background-color: antiquewhite;
+}
+
+.otp {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.otpcontainer {
+  text-align: center;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
