@@ -1,11 +1,11 @@
-import { auth } from "./firebase.config";
+import { auth } from ",./firebase.config";
 import OtpInput from "otp-input-react";
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 import { useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
-const OTP = () => {
+export const OTP = () => {
   const [otp, setOtp] = useState("");
   const [number, setNumber] = useState("");
 
