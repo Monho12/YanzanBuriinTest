@@ -1,11 +1,11 @@
-import { auth } from "./firebase.config";
+import { auth } from "../firebase.config";
 import OtpInput from "otp-input-react";
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 import { useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
-const OTP = () => {
+export const OTP = () => {
   const [otp, setOtp] = useState("");
   const [number, setNumber] = useState("");
 
@@ -15,11 +15,11 @@ const OTP = () => {
         "recaptcha-container",
         {
           size: "invisible",
-          callback: (response) => {
+          callback: () => {
             onSignUp();
           },
-          "expired-callback": () => {
-            console.log("gg");
+          "expired-callback": (item) => {
+            console.log(item);
           },
         },
         auth
@@ -29,6 +29,7 @@ const OTP = () => {
 
   const onSignUp = () => {
     onCaptcha();
+
     const appVerifier = window.recaptchaVerifier;
     const phoneNumber = "+" + number;
 
@@ -38,7 +39,7 @@ const OTP = () => {
         console.log("otp successfully sent!");
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -54,8 +55,8 @@ const OTP = () => {
   };
   return (
     <div className="App">
-      <div id="recaptcha-container" />
       <div className="otp">
+        <div id="recaptcha-container" />
         <div className="otpcontainer">
           <h2>Enter ur phone number</h2>
           <PhoneInput country={"mn"} value={number} onChange={setNumber} />
