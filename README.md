@@ -1,2 +1,2 @@
-# otp-test
-otp function with firebase
+# random tests
+test function with firebase
