@@ -30,7 +30,9 @@ export const DataProvider = (props) => {
     Date: null,
     Hour: null,
     Doctor: null,
+    phoneNumber: null,
   });
+
   return (
     <DataContext.Provider value={{ data, setData, doctorsData }}>
       {props.children}

@@ -9,7 +9,7 @@ export const Landing = () => {
   return (
     <div className={style.container}>
       <Link to="/calendar" style={{ textDecoration: "none", color: "red" }}>
-        <h1>{data.Hour ? "confirmed" : "Appointment"}</h1>
+        <div className="text-2xl font-medium">{data.Hour ? "confirmed" : "Appointment"}</div>
       </Link>
     </div>
   );

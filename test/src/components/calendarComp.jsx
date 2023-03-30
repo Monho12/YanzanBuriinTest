@@ -1,8 +1,12 @@
 import Calendar from "react-calendar";
 import moment from "moment/moment";
 import style from "./designs/Calendar.module.css";
+import { useContext } from "react";
+import { DataContext } from "../contexts/DataProvider";
 
-export const CalendarComp = ({ setData, data }) => {
+export const CalendarComp = () => {
+  const { setData } = useContext(DataContext);
+
   return (
     <div className={style.container}>
       <Calendar

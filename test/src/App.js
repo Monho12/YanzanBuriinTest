@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { OTP } from "./pages/OTP";
 import { Landing } from "./pages/Landing";
 import { DataProvider } from "./contexts/DataProvider";
-import { Calendar } from "./pages/Calendar";
+import { CalendarComp } from "./components/calendarComp";
+import { Calendar } from "./pages/calendar";
 
 function App() {
   return (

@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { CalendarComp } from "../components/calendarComp";
 import { Doctors } from "../components/Doctors";
 import { Hours } from "../components/Hours";
 import style from "./designs/Calendar.module.css";
-import { Link } from "react-router-dom";
 import { DataContext } from "../contexts/DataProvider";
 import { Order } from "../components/order";
 
