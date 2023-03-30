@@ -2,16 +2,21 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { OTP } from "./pages/OTP";
 import { Landing } from "./pages/Landing";
-import { CalendarComp } from "./pages/calendar";
+import { DataProvider } from "./contexts/DataProvider";
+import { Calendar } from "./pages/Calendar";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route index element={<Landing />} />
-        <Route path="/otp" element={<OTP />} />
-        <Route path="/calendar" element={<CalendarComp />} />
-      </Routes>
+      <div className="App">
+        <DataProvider>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/otp" element={<OTP />} />
+            <Route path="/calendar" element={<Calendar />} />
+          </Routes>
+        </DataProvider>
+      </div>
     </BrowserRouter>
   );
 }

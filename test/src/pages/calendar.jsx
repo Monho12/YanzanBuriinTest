@@ -1,18 +1,25 @@
-import { useState } from "react";
-import Calendar from "react-calendar";
-import moment from "moment/moment";
+import { useContext, useEffect, useState } from "react";
+import { CalendarComp } from "../components/calendarComp";
+import { Doctors } from "../components/Doctors";
+import { Hours } from "../components/Hours";
 import style from "./designs/Calendar.module.css";
+import { Link } from "react-router-dom";
+import { DataContext } from "../contexts/DataProvider";
+import { Order } from "../components/order";
 
-export const CalendarComp = () => {
+export const Calendar = () => {
+  const { data, setData } = useContext(DataContext);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <div className={style.container}>
-      <Calendar
-        minDate={new Date()}
-        view="month"
-        onClickDay={(date) => {
-          console.log(moment(date).format("YYYY-MM-DD"));
-        }}
-      />
+      <CalendarComp setData={setData} />
+      {data.Date && <Doctors />}
+      {data.Doctor && <Hours />}
+      {data.Hour && <Order />}
     </div>
   );
 };
